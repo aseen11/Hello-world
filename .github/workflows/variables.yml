@@ -34,10 +34,10 @@ jobs:
             echo "this step runs a special script to clean the failed setup"
             echo ${{ env.FORMAT_ENV}}
       - name: function and always status check
-        if: ${{ startwith(env.aString, ''this'') && always() }}
+        if: ${{ startswith(env.aString, 'this') && always() }}
         run: sleep 60
       - name: test cancelled status check
-        if: ${{ cancelled }}
+        if: ${{ cancelled() }}
         run: echo "this is jon runs if workflow is cancelled"
   test_variables:
     if: (github.event_name == 'pull_request'))
