@@ -40,7 +40,7 @@ jobs:
         if: ${{ cancelled() }}
         run: echo "this is jon runs if workflow is cancelled"
   test_variables:
-    if: (github.event_name == 'pull_request'))
+    if: (github.event_name == 'pull_request')
     env:
       JOB_VAR: job level variable
     name: job to test variables
