@@ -2,7 +2,9 @@ name: workflow
 
 on:
   workflow_dispatch:
-
+  push:
+   branches: master
+    
 jobs:
  first_job:
   name: my first job
