@@ -22,7 +22,7 @@ jobs:
         if: ${{ fromJson(env.aBoolean) }}
         run: echo this job wont run as our variable is false
       - name: contains functions
-        if: ${{ conatins(env.aString, 'this') }}
+        if: ${{ contains(env.aString, 'this') }}
         run: |
           echo "our string var contains the word this"
           echos "there is a typo"
