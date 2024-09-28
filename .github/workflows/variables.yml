@@ -19,25 +19,25 @@ jobs:
         if: (env.aNull == null)
         run: echo this variable is null
       - name: test boolean
-        if: '${{ fromJson(env.aBoolean) }}'
+        if: ${{ fromJson(env.aBoolean) }}
         run: echo this job wont run as our variable is false
       - name: contains functions
-        if: '${{ conatins(env.aString, ''this'')'
+        if: ${{ conatins(env.aString, 'this')
         run: |
           echo "our string var contains the word this"
           echos "there is a typo"
       - name: test status check
-        if: '${{ failure() }}'
+        if: ${{ failure() }}
         env:
          FORMAT_VAR: ${{ format('GitHub {0} {1} {2}', 'actions', 'is', 'awesome') }}
         run: |
             echo "this step runs a special script to clean the failed setup"
             echo ${{ env.FORMAT_ENV}}
       - name: function and always status check
-        if: '${{ startwith(env.aString, ''this'') && always() }}'
+        if: ${{ startwith(env.aString, ''this'') && always() }}
         run: sleep 60
       - name: test cancelled status check
-        if: '${{ cancelled }}'
+        if: ${{ cancelled }}
         run: echo "this is jon runs if workflow is cancelled"
   test_variables:
     if: (github.event_name == 'pull_request'))
