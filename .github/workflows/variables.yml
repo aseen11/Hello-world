@@ -28,7 +28,7 @@ jobs:
       echo $JOB_VAR
       echo $STEP_VAR
       echo ${{ secrets.A_SECRET}}
-      echo ${{var.CONF_VAR}}
+      echo ${{  var.CONF_VAR }}
       
        
    
