@@ -1,4 +1,4 @@
-name: Variables and secrets
+name: Variables and secrets and functions
 env:
   WF_VAR: Workflow level variable
 'on':
