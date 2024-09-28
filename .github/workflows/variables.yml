@@ -4,7 +4,9 @@ env:
  WF_VAR: "Workflow level variable"
 
 on:
+ workflow_dispatch:
  push:
+  branches: master
 
 
 jobs:
