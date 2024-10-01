@@ -1,0 +1,23 @@
+name: Trigger Target Workflow
+
+on:
+ pull_request:
+
+ jobs:
+  trigger:
+   runs-on: ubuntu-latest
+
+   steps:
+   - name: Trigger workflow in another repo(aseen11/my_GHA_project)
+   run: |
+    repo_owner="aseen11"
+    repo_name="aseen11/Hello-world"
+    event_type="trigger-workflow"
+    curl -X POST https://api.github.com/repos/:userName/:repoName/dispatches \
+          -H 'Accept: application/vnd.github.everest-preview+json' \
+          -u ${{ secrets.REPO_ACCESS_TOKEN }} \
+          --data '{"event_type": "Trigger Workflow", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'" }}'
+  - uses: actions/checkout@v3
+   
+ 
+ 
